@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderStuff", "RenderStuff.vcxproj", "{DAE687E9-D195-464A-B47E-3F721CD769AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAE687E9-D195-464A-B47E-3F721CD769AD}.Debug|x64.ActiveCfg = Debug|x64
+		{DAE687E9-D195-464A-B47E-3F721CD769AD}.Debug|x64.Build.0 = Debug|x64
+		{DAE687E9-D195-464A-B47E-3F721CD769AD}.Debug|x86.ActiveCfg = Debug|Win32
+		{DAE687E9-D195-464A-B47E-3F721CD769AD}.Debug|x86.Build.0 = Debug|Win32
+		{DAE687E9-D195-464A-B47E-3F721CD769AD}.Release|x64.ActiveCfg = Release|x64
+		{DAE687E9-D195-464A-B47E-3F721CD769AD}.Release|x64.Build.0 = Release|x64
+		{DAE687E9-D195-464A-B47E-3F721CD769AD}.Release|x86.ActiveCfg = Release|Win32
+		{DAE687E9-D195-464A-B47E-3F721CD769AD}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E49CAA3-CE84-4192-997D-E929D61EBE1F}
+	EndGlobalSection
+EndGlobal
