@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="RenderStuff.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\Shader.shader" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
