@@ -141,6 +141,7 @@ int main(void)
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);  /*apparently the size of a float doubled is 8 bytes*/
 
     ShaderProgramSource source = ParseShader("resources/shaders/Shader.shader");
+    std::cout << source.VertexSource << "\n";
 
    // unsigned int shader = CreateShader(vertexShader, fragmentShader);
    // glUseProgram(shader);
