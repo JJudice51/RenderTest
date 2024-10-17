@@ -47,11 +47,12 @@ static ShaderProgramSource ParseShader(const std::string& filePath)
                 type = ShaderType::FRAGMENT;
 
             }
-            else
-            {
-                ss[(int)type] << line << "\n";
-            }
         }
+        else
+        {
+            ss[(int)type] << line << "\n";
+        }
+
     }
     return { ss[0].str(), ss[1].str() };
 }
@@ -124,27 +125,42 @@ int main(void)
     
     std::cout << glGetString(GL_VERSION) << std::endl;
     
-    float positions[6] = {
-        -0.5f, -0.5f,
-         0.5f,  0.5f,
-         0.5f, -0.5f
+    float positions[] = {
+        -0.5f, -0.5f, // 0
+         0.5f, -0.5f, // 1
+         0.5f,  0.5f, // 2
+        -0.5f,  0.5f  // 3
     };
 
-    /*CREATING AND BINDING THE BUFFER*/
+    unsigned int indices[] = {
+        0, 1, 2,
+        2, 3, 0
+    };
+
+    /*CREATING AND BINDING THE VERTEX BUFFER*/
     unsigned int buffer;
     glGenBuffers(1, &buffer);
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
-    glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 6 * 2 * sizeof(float), positions, GL_STATIC_DRAW);
     
+    /*CREATING AND BINDING THE INDEX BUFFER*/
+    unsigned int ibo;  /*Index Buffer Object*/
+    glGenBuffers(1, &ibo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
+
     /*creates a Vertex Attribute pointer and enables it*/
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);  /*apparently the size of a float doubled is 8 bytes*/
 
     ShaderProgramSource source = ParseShader("resources/shaders/Shader.shader");
+    std::cout << "VERTEX" << "\n";
     std::cout << source.VertexSource << "\n";
+    std::cout << "FRAGMENT" << "\n";
+    std::cout << source.FragmentSource << "\n";
 
-   // unsigned int shader = CreateShader(vertexShader, fragmentShader);
-   // glUseProgram(shader);
+    unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
+    glUseProgram(shader);
 
     
     /*DRAW CODE FOR SHADER STUFF*/
@@ -157,7 +173,10 @@ int main(void)
         glClear(GL_COLOR_BUFFER_BIT);
         
         /*DRAW CODE WITHOUT SHADER STUFF*/
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+       // glDrawArrays(GL_TRIANGLES, 0, 6);
+
+        /*DRAW WITH SHADER STUFF*/
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
         /*LEGACY OPENGL DRAW CODE GLEW NOT NEEDED*/
         // glBegin(GL_TRIANGLES);
@@ -171,6 +190,9 @@ int main(void)
 
         /* Poll for and process events */
         glfwPollEvents();
+
+
+      //  glDeleteProgram(shader);
     }
 
     glfwTerminate();
