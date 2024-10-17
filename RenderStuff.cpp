@@ -176,7 +176,7 @@ int main(void)
        // glDrawArrays(GL_TRIANGLES, 0, 6);
 
         /*DRAW WITH SHADER STUFF*/
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr); /*pulls the 6 indices from ibo and since it is bound above we can just put nullptr for the indices ptr*/
 
         /*LEGACY OPENGL DRAW CODE GLEW NOT NEEDED*/
         // glBegin(GL_TRIANGLES);
