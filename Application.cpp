@@ -13,6 +13,7 @@
 #include "VertexArray.h"
 #include "IndexBuffer.h"
 #include "Shader.h"
+#include "Texture.h"
 
 
 
@@ -82,6 +83,8 @@ int main(void)
         /*CREATING AND BINDING THE VERTEX BUFFER*/
         VertexArray va;
         VertexBuffer vb(positions, 4 * 2 * sizeof(float));
+
+
         VertexBufferLayout layout;
         layout.Push<float>(2);
         va.AddBuffer(vb, layout);
@@ -96,9 +99,9 @@ int main(void)
         shader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
 
 
-
-
-
+     /////   Texture texture ("res/textures/somethingsomewherehere") /////NEED TO FINISH FILE PATH FOR TEXTURES
+      /////  texture.Bind();
+     /////   shader.SetUniform1i("u_Texture",0);                   
 
         va.Unbind();
         shader.Unbind();
