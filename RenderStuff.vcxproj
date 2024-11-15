@@ -128,7 +128,7 @@
       <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>XCOPY $(Projectdir)res $(OutputPath)res /Q /E /Y /I</Command>
+      <Command>XCOPY $(Projectdir)resources $(OutputPath)resources /Q /E /Y /I</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
