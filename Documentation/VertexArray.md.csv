@@ -1,0 +1,10 @@
+| #class VertexArray                                                       | Array of Vertexes for getting the math part of the rendering |
+|--------------------------------------------------------------------------|--------------------------------------------------------------|
+| unsigned int m_RendererID                                                | ID of the Renderer                                           |
+| VertexArray()                                                            | Constructor for the Vertex Array                             |
+| ~VertexArray()                                                           | Destructor for the Vertex Array                              |
+| void AddBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout) | Adds the Vertex Buffer to the Vertex Array                   |
+| void Bind() const                                                        | Binds to the renderer                                        |
+| void Unbind() const                                                      | Unbinds from the renderer                                    |
+|                                                                          |                                                              |
+|                                                                          |                                                              |
