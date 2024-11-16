@@ -9,7 +9,7 @@
         void main()
         {
          gl_Position = position; 
-         v_texCoord = texCoord
+         v_texCoord = texCoord;
         };
 
         #shader fragment
@@ -25,7 +25,7 @@
         
         void main()
         {
-            vec4 texColor = texture(u_texture, v_texCoord)
+        vec4 texColor = texture(u_texture, v_texCoord);
             color = texColor; 
 
         };
